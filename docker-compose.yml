@@ -1,0 +1,21 @@
+version: '2.1'
+services:
+  mysql:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD: welcome123
+  webserver:
+    image: harrifeng/airflow-in-docker
+    restart: always
+    depends_on:
+      - mysql
+    environment:
+      - LOAD_EXAMPLE=no
+      - EXECUTOR=local
+    volumes:
+      - $(PWD)/dags:/usr/local/airflow/dags
+    ports:
+      - "8080:8080"
+    command: webserver
