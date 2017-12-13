@@ -5,7 +5,7 @@ services:
     ports:
       - "3306:3306"
     environment:
-      - MYSQL_ROOT_PASSWORD: welcome123
+      - MYSQL_ROOT_PASSWORD: rootpass
   webserver:
     image: harrifeng/airflow-in-docker
     restart: always
