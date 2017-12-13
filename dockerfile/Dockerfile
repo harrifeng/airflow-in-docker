@@ -30,6 +30,7 @@ RUN set -ex \
         libblas-dev \
         liblapack-dev \
         libpq-dev \
+        libmysqlclient-dev \
         git \
     ' \
     && apt-get update -yqq \
